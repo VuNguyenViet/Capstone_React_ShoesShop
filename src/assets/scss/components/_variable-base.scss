@@ -1,0 +1,69 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Inter', sans-serif;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+    &:hover {
+        color: unset;
+    }
+}
+
+li {
+    list-style: none;
+}
+
+
+//text size
+$text-10: 10px;
+$text-15: 15px;
+$text-16: 16px;
+$text-20: 20px;
+$text-24: 24px;
+$text-30: 30px;
+$text-40: 40px;
+
+//text weight
+$text-extraLight: 200;
+$text-light: 300;
+$text-regular: 400;
+$text-semibold: 600;
+$text-bold: 700;
+
+//text color
+$text-primary: #000;
+$text-secondary: #CBC9C9;
+$text-accent: #F50E0E;
+$text-c1-white: #fff;
+$text-c2-white: #F6F6F6;
+
+//bg color 
+$bg-btn: #AE18E2;
+$bg-black: #000;
+$bg-c1-btn: #F8B653;
+$bg-c2-btn: #E1B067;
+$bg-card: #F8F8F8;
+$bg-price: #DEDDDC;
+
+//border
+$border-input : #AE18E2;
+
+
+@mixin text($size: $text-15, $weight: $text-regular, $color: $text-primary ) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
