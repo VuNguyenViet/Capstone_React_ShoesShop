@@ -45,6 +45,10 @@
         @include button(50px, 50px, $bg-btn-c1-gradient);
         @include text($text-30, $text-regular, $text-c1-white);
       }
+
+      span {
+        @include text($text-30);
+      }
     }
 
     .addToCart {

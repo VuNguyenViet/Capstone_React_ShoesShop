@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
+import axios from 'axios';
 import {http} from '../../util/config'
 const initialState = {
-    arrProduct: []
+    arrProduct: [],
+    productDetail: {},
 }
 
 const productReducer = createSlice({
@@ -10,11 +12,14 @@ const productReducer = createSlice({
   reducers: {
     setArrProductAction : (state,action) => {
         state.arrProduct = action.payload;
+    },
+    setProductDetailAction: (state, action) => {
+        state.productDetail = action.payload;
     }
   }
 });
 
-export const {setArrProductAction} = productReducer.actions
+export const {setArrProductAction, setProductDetailAction} = productReducer.actions
 
 export default productReducer.reducer
 
@@ -34,4 +39,21 @@ export const getProductApi = () => {
         }
     }
 
+}
+
+export const getProductDetailApiAction = (productId) => {
+    return async dispatch => {
+        // call api
+        try {
+            const result = await axios({
+                url: `https://shop.cyberlearn.vn/api/Product/getbyid?id=${productId}`,
+                method: 'GET',
+            });
+
+            const action = setProductDetailAction(result.data.content);
+            dispatch(action);
+        } catch (err) {
+            console.log(err);
+        }
+    }
 }
