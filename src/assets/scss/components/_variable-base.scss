@@ -40,6 +40,7 @@ $text-40: 40px;
 $text-extraLight: 200;
 $text-light: 300;
 $text-regular: 400;
+$text-medium: 500;
 $text-semibold: 600;
 $text-bold: 700;
 
@@ -49,21 +50,41 @@ $text-secondary: #CBC9C9;
 $text-accent: #F50E0E;
 $text-c1-white: #fff;
 $text-c2-white: #F6F6F6;
+$text-c1-dark: #140101;
+$text-c2-dark: #1E1D1D;
+$text-green: #1ED90E;
+
+
+// line-height
+$lh-regular: 1.2;
 
 //bg color 
 $bg-btn: #AE18E2;
 $bg-black: #000;
 $bg-c1-btn: #F8B653;
 $bg-c2-btn: #E1B067;
+$bg-btn-c1-gradient: linear-gradient(180deg, #6181F3 0%, #7C97F5 99.48%);
+$bg-btn-c2-gradient: linear-gradient(270deg, rgba(62, 32, 248, 0.9) 5.14%, #D017EE 89.71%);
 $bg-card: #F8F8F8;
 $bg-price: #DEDDDC;
+$bg-size: #CCCCCC;
+
 
 //border
 $border-input : #AE18E2;
 
 
-@mixin text($size: $text-15, $weight: $text-regular, $color: $text-primary ) {
+@mixin text($size: $text-15, $weight: $text-regular, $color: $text-primary, $line-height: $lh-regular ) {
     font-size: $size;
     font-weight: $weight;
     color: $color;
+    line-height: $line-height;
+}
+
+@mixin button($width, $height, $bg-color, $border: transparent) {
+    width: $width;
+    height: $height;
+    background: $bg-color;
+    border: $border;
+    cursor: pointer;
 }
