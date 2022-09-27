@@ -17,26 +17,31 @@
   .product-detail__info {
     h3 {
       @include text($text-30);
+      margin-bottom: 10px;
     }
     p {
       @include text($text-16, $text-regular, $text-c1-dark);
     }
 
     .shoes-sizes {
+      padding-bottom: 11px;
       p {
         @include text($text-24, $text-medium, $text-green);
+        margin: 10px 0 20px;
       }
 
-      .shoes-sizes__block {
-        @include button(50px, 50px, $bg-size);
-        margin-right: 21px;
-        padding: 10px;
-        @include text($text-24, $text-semibold, $text-c2-dark);
+      .shoes-sizes__blocks {
+        .shoes-sizes__block {
+          @include button(50px, 50px, $bg-size);
+          margin-right: 21px;
+          padding: 10px;
+          @include text($text-24, $text-semibold, $text-c2-dark);
+        }
       }
     }
 
     .shoes-price {
-      margin-top: 17px;
+      margin: 17px 0;
       @include text($text-30, $text-semibold, $text-accent);
     }
 
@@ -47,6 +52,7 @@
       }
 
       span {
+        margin: 0 20px;
         @include text($text-30);
       }
     }

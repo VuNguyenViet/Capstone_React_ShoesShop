@@ -1,18 +1,38 @@
-import React from 'react'
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
-export default function Product({product}) {
+export default function Product({ product }) {
+  // const { product } = props;
+  const navigate = useNavigate();
 
-    // const {product}=props;
   return (
-    <div className='card'>
-        <img src={product.image} alt='...' />
-        <div className='card-body'>
-            <p>{product.name}</p>
-            <p>{product.price}</p>
-            <button className='btn btn-dark'>Add to cart 
-                <i class="fa fa-cart-plus"></i>
-            </button>
+    <div className="product-card">
+      <div className="product-card__img">
+        <img src={product.image} alt="..." />
+      </div>
+      <div className="product-card__body">
+        <NavLink to={`/detail/${product.id}`}>
+          <h3>
+            {product.name.length > 21
+              ? product.name.slice(0, 21) + "..."
+              : product.name}
+          </h3>
+        </NavLink>
+        <p>{product.shortDescription}</p>
+      </div>
+      <div className="product-card__footer">
+        <button
+          className="btnBuyNow"
+          onClick={() => {
+            navigate(`/detail/${product.id}`);
+          }}
+        >
+          Buy now
+        </button>
+        <div className="product-price">
+          <p>{product.price}$</p>
         </div>
+      </div>
     </div>
-  )
+  );
 }
