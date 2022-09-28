@@ -170,4 +170,120 @@ li {
   font-size: 12px;
   font-weight: 400;
   color: rgb(200, 80, 79);
+}
+
+.p4-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.p4-footer .p4-footer_buynow {
+  position: relative;
+  background-color: #E1B067;
+  width: 175px;
+  height: 64px;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 29px;
+}
+.p4-footer .p4-footer_buynow .buynow {
+  position: absolute;
+  left: 33px;
+  top: 15px;
+}
+.p4-footer .p4-footer_price {
+  position: relative;
+  background-color: #DEDDDC;
+  width: 175px;
+  height: 64px;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 29px;
+}
+.p4-footer .p4-footer_price .price {
+  position: absolute;
+  left: 40px;
+  top: 15px;
+}
+
+.ProductFeature {
+  background: linear-gradient(#F21299, #1B02B5);
+  width: 698px;
+  height: 74px;
+  top: 44px;
+  left: -4px;
+  color: white;
+  margin: 20px 0;
+}
+.ProductFeature .ProductText {
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 48px;
+  padding: 20px;
+}
+
+.login {
+  width: 442px;
+  margin-left: 432px;
+  margin-top: 117px;
+  margin-bottom: 30px;
+}
+.login p {
+  font-size: 18px;
+  font-weight: 500px;
+}
+.login input {
+  width: 100%;
+  height: 63px;
+  font-size: 18px;
+  background-color: rgba(33, 33, 33, 0.08);
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  margin-top: -10px;
+}
+.login .login_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.login .login_flex .login_register {
+  color: #152AEB;
+  font-weight: 500;
+  size: 18px;
+  line-height: 18px;
+  margin-left: 170px;
+}
+.login .login_flex .login_button {
+  width: 121px;
+  height: 48px;
+  border-radius: 50px;
+  border: none;
+  background-color: #6200EE;
+  margin-left: 27px;
+  color: white;
+}
+.login .facebook_button {
+  width: 100%;
+  height: 63px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 21px;
+  background-color: #1877F2;
+}
+.login .facebook_button .facebook_icon {
+  position: absolute;
+  background-color: #1877F2;
+  color: white;
+  left: 50px;
+  font-size: 40px;
+  border-radius: 30px;
+}
+.login .facebook_button .fb_text {
+  color: white;
+  text-align: center;
+  margin-left: 115px;
 }/*# sourceMappingURL=styles.css.map */
