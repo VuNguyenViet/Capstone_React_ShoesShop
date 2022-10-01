@@ -1,6 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addToCartAction } from "../../redux/reducers/cartReducer";
+import { changeProductQntAction } from "../../redux/reducers/productReducer";
 
 export default function ProductDetail({ productDetail }) {
+  const dispatch = useDispatch();
+
+  const handleChangeQnt = (prodId, increOrDecre) => {
+    const action = changeProductQntAction({ prodId, increOrDecre });
+    dispatch(action);
+  };
+
+  const handleAddToCart = (product) => {
+    const action = addToCartAction(product);
+    dispatch(action);
+  };
+
   return (
     <div className="row product-detail">
       <div className="col-4 product-detail__img">
@@ -23,11 +38,20 @@ export default function ProductDetail({ productDetail }) {
         </div>
         <p className="shoes-price">{productDetail.price}$</p>
         <div className="shoes-quantity">
-          <button>-</button>
+          <button onClick={() => handleChangeQnt(productDetail.id, false)}>
+            -
+          </button>
           <span className="mx-3">{productDetail.quantity}</span>
-          <button>+</button>
+          <button onClick={() => handleChangeQnt(productDetail.id, true)}>
+            +
+          </button>
         </div>
-        <button className="addToCart">Add to cart</button>
+        <button
+          className="addToCart"
+          onClick={() => handleAddToCart(productDetail)}
+        >
+          Add to cart
+        </button>
       </div>
     </div>
   );

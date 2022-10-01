@@ -2,7 +2,6 @@ import React from "react";
 import Product from "../../components/Product/Product";
 
 export default function RelatedProducts({ relatedProducts }) {
-  console.log(relatedProducts);
   return (
     <div className="related-products">
       <h2>- Related Products -</h2>

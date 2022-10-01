@@ -25,6 +25,7 @@ export default function Product({ product }) {
           className="btnBuyNow"
           onClick={() => {
             navigate(`/detail/${product.id}`);
+            document.documentElement.scrollTop = 0;
           }}
         >
           Buy now

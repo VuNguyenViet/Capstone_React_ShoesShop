@@ -1,9 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import logo from '../../assets/img/Logo.png'
 
 
 export default function Header() {
+    const { cart } = useSelector(state => state.cartReducer);
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark header">
             <NavLink className="navbar-brand" to="/"><img  src={logo}/></NavLink>
@@ -19,7 +21,7 @@ export default function Header() {
 
                         <li className="nav-item">
                             <NavLink className="nav-link " to="/carts" aria-current="page">
-                                <i class="fa fa-cart-plus"></i> (1)
+                                <i class="fa fa-cart-plus"></i> ({ cart.reduce((totalQnt, prodInCart) => totalQnt += prodInCart.quantity, 0) })
                             </NavLink>
                         </li>
                         <li className="nav-item">
