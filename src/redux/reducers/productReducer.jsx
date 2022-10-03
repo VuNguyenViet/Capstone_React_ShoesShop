@@ -16,6 +16,9 @@ const productReducer = createSlice({
     setProductDetailAction: (state, action) => {
       state.productDetail = action.payload;
     },
+    getProductByKwdAction: (state, action) => {
+      state.arrProduct = action.payload;
+    },
     changeProductQntAction: (state, action) => {
       // action = { prodId, increOrDecre }
       console.log(state.arrProduct);
@@ -35,6 +38,7 @@ const productReducer = createSlice({
 export const {
   setArrProductAction,
   setProductDetailAction,
+  getProductByKwdAction,
   changeProductQntAction,
 } = productReducer.actions;
 
@@ -66,6 +70,23 @@ export const getProductDetailApiAction = (productId) => {
       });
 
       const action = setProductDetailAction(result.data.content);
+      dispatch(action);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const getProductByKwdApiAction = (keyword) => {
+  return async (dispatch) => {
+    // call api
+    try {
+      const result = await axios({
+        url: `https://shop.cyberlearn.vn/api/Product?keyword=${keyword}`,
+        method: "GET",
+      });
+
+      const action = getProductByKwdAction(result.data.content);
       dispatch(action);
     } catch (err) {
       console.log(err);

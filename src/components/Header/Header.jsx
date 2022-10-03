@@ -13,10 +13,10 @@ export default function Header() {
             <div className="collapse navbar-collapse header_right" id="collapsibleNavId">
 
                 <form className="d-flex my-2 my-lg-0">
-                    <NavLink className="nav-link " to="/carts" aria-current="page">
-                        <i class="fa fa-search-plus" style={{ color: 'white' , fontSize: '25px', marginTop:'8px'}}></i>
+                    <NavLink className="nav-link " to="/search" aria-current="page">
+                        <i class="fa fa-search-plus" style={{ color: 'white' , fontSize: '25px', marginTop:'4px'}}></i>
+                        <button className="my-2 my-sm-0 search_header" type="submit" style={{ background: 'transparent', border: 'none', marginLeft: '5px' }}>Search</button>
                     </NavLink>
-                    <button className="btn btn-outline-success my-2 my-sm-0 search_header" type="submit">Search</button>
                     <ul className="navbar-nav me-auto mt-2 mt-lg-0">
 
                         <li className="nav-item">

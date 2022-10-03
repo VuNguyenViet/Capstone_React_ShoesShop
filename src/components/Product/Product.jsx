@@ -18,7 +18,9 @@ export default function Product({ product }) {
               : product.name}
           </h3>
         </NavLink>
-        <p>{product.shortDescription}</p>
+        <div className="product-description">
+          <p>{product.shortDescription}</p>
+        </div>
       </div>
       <div className="product-card__footer">
         <button

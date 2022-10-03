@@ -23,8 +23,12 @@
       margin-bottom: 8px;
     }
 
-    p {
-      @include text($text-20, $text-light, $text-secondary);
+    .product-description {
+      height: 72px;
+      
+      p {
+        @include text($text-20, $text-light, $text-secondary);
+      }
     }
   }
 
