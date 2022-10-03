@@ -4,7 +4,8 @@ import { history } from '../../index'
 import { ACCESS_TOKEN, getStore, getStoreJSON, http, setCookie, setStore, setStoreJSON, USER_LOGIN } from '../../util/config';
 
 const initialState = {
-    userLogin: getStoreJSON(USER_LOGIN) //null
+    userLogin: getStoreJSON(USER_LOGIN), //null
+    newUser: {},
 }
 
 const userReducer = createSlice({
@@ -15,11 +16,14 @@ const userReducer = createSlice({
             let userLogin = action.payload;
             state.userLogin =  userLogin;
             // state.userLogin.email = email;
+        },
+        setNewUser: (state, action) => {
+            state.newUser = action.payload;
         }
     }
 });
 
-export const { setUserLoginAction} = userReducer.actions
+export const { setUserLoginAction, setNewUser } = userReducer.actions
 
 export default userReducer.reducer
 
@@ -75,4 +79,20 @@ export const getProfileApi = ()=>{
             console.log({err})
         }
     } 
+}
+
+export const signupApi = (userSignin) => {  // { "email": "", "password": "",  "name": "",  "gender": true, "phone": "" }
+    return async dispatch => {
+        try {
+            let result = await http.post('/users/signup', userSignin);
+            console.log('result', result.data.content);
+
+            const action = setNewUser(result.data.content);
+            dispatch(action);
+
+            history.push('/login');
+        } catch (err) {
+            console.log(err);
+        }
+    }
 }
