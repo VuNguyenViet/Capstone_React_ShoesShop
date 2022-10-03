@@ -16,21 +16,18 @@ const productReducer = createSlice({
     setProductDetailAction: (state, action) => {
       state.productDetail = action.payload;
     },
+    changeProductQntAction: (state, action) => {
+      const { prodId, increOrDecre } = action.payload;
+      if (prodId === state.productDetail.id) {
+        if (increOrDecre) {
+          state.productDetail.quantity += 1;
+        } else {
+          state.productDetail.quantity -= 1;
+        }
+      }
+    },
     getProductByKwdAction: (state, action) => {
       state.arrProduct = action.payload;
-    },
-    changeProductQntAction: (state, action) => {
-      // action = { prodId, increOrDecre }
-      console.log(state.arrProduct);
-      let index = state.arrProduct.findIndex(
-        (prod) => prod.id === action.payload.prodId
-      );
-      console.log(index);
-      //   if (action.payload.increOrDecre) {
-      //     state.arrProduct[index].quantity += 1;
-      //   } else {
-      //     state.arrProduct[index].quantity -= 1;
-      //   }
     },
   },
 });

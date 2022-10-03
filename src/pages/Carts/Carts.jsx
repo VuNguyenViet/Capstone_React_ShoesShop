@@ -8,13 +8,12 @@ import {
 } from "../../redux/reducers/cartReducer";
 
 export default function Carts() {
-  const { cart, checkOutProducts } = useSelector((state) => state.cartReducer);
-  console.log(checkOutProducts);
+  const { cart } = useSelector((state) => state.cartReducer);
 
   const dispatch = useDispatch();
 
-  const handleCheckProduct = (product) => {
-    dispatch(checkProduct(product));
+  const handleCheckProduct = (productId) => {
+    dispatch(checkProduct(productId));
   };
 
   const handleChangeQnt = (prodId, increOrDecre) => {
@@ -37,7 +36,7 @@ export default function Carts() {
             <input
               type="checkbox"
               checked={prod.isChecked ? true : false}
-              onChange={() => handleCheckProduct(prod)}
+              onChange={() => handleCheckProduct(prod.id)}
             />
           </td>
           <td>{prod.id}</td>

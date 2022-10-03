@@ -31,7 +31,6 @@ const cartReducer = createSlice({
           };
         }
         state.cart.push(newCartProduct);
-        console.log(state.cart);
       }
     },
     changeQntAction: (state, action) => {
@@ -49,13 +48,14 @@ const cartReducer = createSlice({
       state.cart.splice(index, 1);
     },
     checkProduct: (state, action) => {
-      let index = state.cart.findIndex((prod) => prod.id === action.payload.id);
+      let index = state.cart.findIndex((prod) => prod.id === action.payload);
       state.cart[index].isChecked = !state.cart[index].isChecked;
     },
     submitOrderAction: (state) => {
       state.checkOutProducts = state.cart.filter(
         (product) => product.isChecked === true
       );
+      console.log("submitted order", state.checkOutProducts);
     },
   },
 });
