@@ -17,6 +17,18 @@
      margin-bottom: 30px;
      margin-top: -10px;
     }   
+    .Login_padding {
+      padding: 0px 10px;
+    }
+    .password {
+      position: relative;
+      .eye {
+       position: absolute;
+       right: 30px;
+       top: 10px;
+       border: none;
+      }
+    }
     .login_flex {
         display: flex;
         justify-content: center;

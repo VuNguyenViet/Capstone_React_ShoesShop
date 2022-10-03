@@ -1,28 +1,68 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import { useDispatch } from 'react-redux'
+import { signinApi } from '../../redux/reducers/userReducer'
 
-export default function Login() {
+
+
+
+export default function Login(props) {
+
+const dispatch = useDispatch ()
+const formik = useFormik ({
+  initialValues:{
+    email:'',
+    password:''
+},
+validationSchema:Yup.object().shape({
+  email: Yup.string().required('Email không được bỏ trống !').email('Email không đúng định dạng!'),
+  password: Yup.string().required('Password không được bỏ trống !').min(3,'password từ 3 - 32 ký tự!').max(32,'password từ 3 đến 32 ký tự!')
+  // .matches(/cybersoft/,'Password phải có cybersoft')
+})
+,
+onSubmit: (values)=>{
+  // console.log(values)
+  const action = signinApi(values);
+  dispatch(action);
+
+  
+}
+})
+
+
+
   return (
-   <div className='login'>
-     <p>Email</p>
-     <input type="text"  placeholder='Email'/>
-     <p>Password</p>
-     <input type="password"placeholder='PassWord'/>
-     <div className='login_flex'>
-       <div className='login_register'>
-        <NavLink>Register Now ?</NavLink>
-       </div>
-       <button className='login_button'>Login</button>
-     </div>
-     <div>
-      <button className='facebook_button'>
-        <div className='facebook_icon'>
-        <i class="fab fa-facebook "></i> 
+    <form className='login'  onSubmit={formik.handleSubmit}>
+      <p>Email</p>
+      <input type="text" id="email" name='email' placeholder='Enter Your Email' className='Login_padding'  onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+      {formik.errors.email ? <p className='text text-danger'>{formik.errors.email}</p> : ''} 
+      <p>Password</p>
+      <div className='password'>
+        <input type="password" placeholder=' Enter your PassWord' className='Login_padding' id="password" name='password' onChange={formik.handleChange}  onBlur={formik.handleBlur} />
+        {formik.errors.password ? <p className='text text-danger'>{formik.errors.password}</p> : ''}
+        <button className='eye'>
+        <i class="fas fa-eye-slash"></i>
+        </button>
+       
+      </div>
+
+      <div className='login_flex'>
+        <div className='login_register'>
+          <NavLink to= "/Register">Register Now ?</NavLink>
         </div>
-     
-      <p className='fb_text'>Continue With Facebook</p>
-      </button>
-     </div>
-   </div>
+        <button type='submit' className='login_button'>Login</button>
+      </div>
+      <div>
+        <button className='facebook_button'>
+          <div className='facebook_icon'>
+            <i class="fab fa-facebook "></i>
+          </div>
+
+          <p className='fb_text'>Continue With Facebook</p>
+        </button>
+      </div>
+    </form>
   )
 }

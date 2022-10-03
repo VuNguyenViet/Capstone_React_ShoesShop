@@ -242,6 +242,18 @@ li {
   margin-bottom: 30px;
   margin-top: -10px;
 }
+.login .Login_padding {
+  padding: 0px 10px;
+}
+.login .password {
+  position: relative;
+}
+.login .password .eye {
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  border: none;
+}
 .login .login_flex {
   display: flex;
   justify-content: center;
@@ -286,4 +298,46 @@ li {
   color: white;
   text-align: center;
   margin-left: 115px;
+}
+
+.register {
+  width: 1100px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.register p {
+  margin-bottom: 5px;
+  text-align: start;
+}
+.register .input_validation {
+  width: 443px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(33, 33, 33, 0.08);
+}
+.register .register_right {
+  position: relative;
+}
+
+.ul_radio_button {
+  display: flex;
+}
+.ul_radio_button .radio_button {
+  display: flex;
+  padding: 35px;
+  font-size: 30px;
+}
+
+.Submit_register {
+  width: 121px;
+  height: 48px;
+  left: 0px;
+  border-radius: 50px;
+  border: none;
+  background-color: #6200EE;
+  color: white;
 }/*# sourceMappingURL=styles.css.map */
