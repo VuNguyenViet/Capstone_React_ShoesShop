@@ -67,12 +67,8 @@ export default function Carts() {
     });
   };
 
-  const getOrderApi = () => {
-    dispatch(getOrderApiAction());
-  };
-
   useEffect(() => {
-    getOrderApi();
+    dispatch(getOrderApiAction());
   }, []);
 
   return (

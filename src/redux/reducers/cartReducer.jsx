@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { http } from "../../util/config";
+import { getStoreJSON, http, USER_LOGIN } from "../../util/config";
 import { history } from "../../index";
 
 const initialState = {
+  orderDetail: {},
   cart: [],
   cartProduct: {
     id: "",
@@ -12,7 +13,6 @@ const initialState = {
     quantity: 1,
     isChecked: true,
   },
-  orderDetail: {},
   checkOutProducts: [],
 };
 
@@ -81,9 +81,9 @@ export const getOrderApiAction = () => {
   return async (dispatch) => {
     try {
       // call api
-      let result = await http.post("/users/order");
+      let result = await http.post("/Users/order", getStoreJSON(USER_LOGIN));
 
-      console.log('result', result.data.content);
+      console.log("result", result.data.content);
 
       dispatch(setOrderDetailAction(result.data.content));
     } catch (err) {
