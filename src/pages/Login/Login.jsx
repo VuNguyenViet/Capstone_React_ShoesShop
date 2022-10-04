@@ -4,8 +4,8 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useDispatch } from 'react-redux'
 import { signinApi } from '../../redux/reducers/userReducer'
-     
-import  FacebookLogin from 'react-facebook-login'
+
+import FacebookLogin from 'react-facebook-login'
 
 
 
@@ -14,7 +14,12 @@ export default function Login(props) {
 
 
   const responseFacebook = (response) => {
-    console.log(response) ;
+    <button className='facebook_button'>
+  <div className='facebook_icon'>
+    <i class="fab fa-facebook "></i>
+  </div>
+  <p className='fb_text'>Continue With Facebook</p>
+</button>
   }
 
   const dispatch = useDispatch()
@@ -62,20 +67,28 @@ export default function Login(props) {
         <button type='submit' className='login_button'>Login</button>
       </div>
       <div>
-      <FacebookLogin
-    appId="1088597931155576"
-    autoLoad={true}
-    fields="name,email,picture"
-    callback={responseFacebook} />,
+        <FacebookLogin
+          appId="405558278438475"
+          autoLoad={true}
+          fields="name,email,picture"
+          onClick={(props) => {
+            return <button className='facebook_button'>
+            <div className='facebook_icon'>
+              <i class="fab fa-facebook "></i>
+            </div>
+            <p className='fb_text'>Continue With Facebook</p>
+          </button>
+          }}
+          callback={responseFacebook}  />
       </div>
     </form>
   )
 }
 
 
-<button className='facebook_button'>
-          <div className='facebook_icon'>
-            <i class="fab fa-facebook "></i>
-          </div>
-          <p className='fb_text'>Continue With Facebook</p>
-        </button>
+{/* <button className='facebook_button'>
+  <div className='facebook_icon'>
+    <i class="fab fa-facebook "></i>
+  </div>
+  <p className='fb_text'>Continue With Facebook</p>
+</button> */}
