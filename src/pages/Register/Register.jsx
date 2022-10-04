@@ -20,7 +20,7 @@ export default function Register() {
     validationSchema: Yup.object().shape({
       phone: Yup.string()
         .required("Số điện thoại không được để trống !")
-        .matches(10, "Số điện thoại phải đủ 10 số "),
+        .min( 10 , "Số điện thoại phải đủ 10 số "),
       name: Yup.string().required("Tên không được để trống "),
       email: Yup.string()
         .required("Email không được bỏ trống !")
@@ -144,7 +144,7 @@ export default function Register() {
               </label>
             </li>
           </ul>
-          <button type="submit" className="Submit_register">
+          <button type='submit' className="Submit_register">
             Submit
           </button>
         </div>

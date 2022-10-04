@@ -53,7 +53,7 @@ export const signinApi = (userLogin) => { //userLogin = {email:'',password}
 
         } catch (err) {
             console.log({err});
-            alert('Tài khoản hoăc 1 mật khẩu không đúng !')
+            alert('Tài khoản hoăc  mật khẩu không đúng !')
             history.push('/');
 
         }
@@ -92,6 +92,8 @@ export const signupApi = (userSignin) => {  // { "email": "", "password": "",  "
 
             history.push('/login');
         } catch (err) {
+            alert('Tài khoản không hợp lệ ') ;
+            history.push('/register');
             console.log(err);
         }
     }
