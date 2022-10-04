@@ -47,7 +47,10 @@ export const getProductApi = () => {
   return async (dispatch) => {
     try {
       //call api
-      const result = await http.get("/product");
+      const result = await axios({
+        url: "https://shop.cyberlearn.vn/api/Product",
+        method: "GET",
+      });
       //Lấy dữ liệu về đưa lên redux
       const action = setArrProductAction(result.data.content);
       dispatch(action);
