@@ -1,23 +1,44 @@
-import React from 'react'
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Product({ product }) {
+  const navigate = useNavigate();
 
-  // const {product}=props;
   return (
-    <div style={{width:'335px'}} className='card'>
-      <img style={{ backgroundColor: '#F8F8F8' }} src={product.image} alt='...' />
-      <div className='card-body'>
-        <p style={{fontheight: 600}}>{product.name}</p>
-        <p>{product.shortDescription}</p>
+    <div className="product-card">
+      <div className="product-card__img">
+        <img src={product.image} alt="..." />
       </div>
-      <div class="p4-footer">
-        <div style= {{fontWeight:'200', fontSize: '24'}} class="p4-footer_buynow">
-          <div class="buynow">Buy Now</div>
+      <div className="product-card__body">
+        <NavLink to={`/detail/${product.id}`}>
+          <h3>
+            {product.name.length > 21
+              ? product.name.slice(0, 21) + "..."
+              : product.name}
+          </h3>
+        </NavLink>
+        <div className="product-description">
+          <p>
+            {product.shortDescription.length > 50
+              ? product.shortDescription.slice(0, 50) + "..."
+              : product.shortDescription}
+          </p>
         </div>
-        <div style={{fontWeight:'600', fontSize:'24'}} class="p4-footer_price">
-          <div class="price">{product.price}$</div>
+      </div>
+      <div className="product-card__footer">
+        <button
+          className="btnBuyNow"
+          onClick={() => {
+            navigate(`/detail/${product.id}`);
+            document.documentElement.scrollTop = 0;
+          }}
+        >
+          Buy now
+        </button>
+        <div className="product-price">
+          <p>{product.price}$</p>
         </div>
       </div>
     </div>
-  )
+  );
 }

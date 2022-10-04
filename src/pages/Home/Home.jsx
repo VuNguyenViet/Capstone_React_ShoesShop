@@ -22,7 +22,7 @@ export default function Home() {
         </div>
       </div>
       <div className='row'>
-        {arrProduct.map((prod, index) => {
+        {arrProduct?.map((prod, index) => {
           return <div className='col-4 mt-2' key={prod.id}>
             <Product product={prod} />
           </div>
