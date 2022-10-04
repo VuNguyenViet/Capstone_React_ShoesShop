@@ -1,0 +1,86 @@
+
+
+@mixin text($size: $text-15, $weight: $text-regular, $color: $text-primary ) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+
+//text size
+$text-10: 10px;
+$text-15: 15px;
+$text-16: 16px;
+$text-20: 20px;
+$text-24: 24px;
+$text-30: 30px;
+$text-40: 40px;
+
+//text weight
+$text-extraLight: 200;
+$text-light: 300;
+$text-regular: 400;
+$text-semibold: 600;
+$text-bold: 700;
+
+//text color
+$text-primary: #000;
+$text-secondary: #CBC9C9;
+$text-accent: #F50E0E;
+$text-c1-white: #fff;
+$text-c2-white: #F6F6F6;
+
+//bg color 
+$bg-btn: #AE18E2;
+$bg-black: #000;
+$bg-c1-btn: #F8B653;
+$bg-c2-btn: #E1B067;
+$bg-card: #F8F8F8;
+$bg-price: #DEDDDC;
+
+//border
+$border-input : #AE18E2;
+
+.register {
+    width: 1100px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    p {
+        margin-bottom: 5px;
+        text-align: start;
+    }
+    .input_validation {
+        width: 443px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: rgba(33, 33, 33, 0.08);;
+        
+    }
+    .register_right {
+        position: relative;
+    }
+    
+    
+}
+.ul_radio_button {
+    display: flex;
+    .radio_button {
+        display: flex;
+        padding: 35px;
+        font-size: 30px;
+        
+    }
+}
+.Submit_register {
+    width: 121px;
+    height: 48px;
+    left: 0px;
+    border-radius: 50px;
+    border: none;
+    background-color: #6200EE;
+    color: white;
+}
+

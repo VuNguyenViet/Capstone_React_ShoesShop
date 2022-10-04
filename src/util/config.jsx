@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import {history} from '../index'
+import {history} from '../index'
 export const configs = {
     setStore: (name,values)=>{
         localStorage.setItem(name,values);
@@ -22,7 +22,7 @@ export const configs = {
     },
     setCookie : ( value , days,name ) => {
         var expires = "";
-        if (days) {
+        if (days) { 
             var date = new Date();
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
             expires = "; expires=" + date.toUTCString();
@@ -96,12 +96,12 @@ http.interceptors.response.use((response) => {
     // const originalRequest = error.config;
     console.log(err.response.status);
     if(err.response.status === 400 || err.response.status === 404) {
-        // history.push('/');
+        history.push('/');
         return  Promise.reject(err);
     }
     if(err.response.status === 401 || err.response.status === 403) {
         alert('Token không hợp lệ ! Vui lòng đăng nhập lại !');
-        // history.push('/login');
+        history.push('/login');
         return Promise.reject(err)
     }
 })

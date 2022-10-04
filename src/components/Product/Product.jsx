@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Product({ product }) {
-  // const { product } = props;
   const navigate = useNavigate();
 
   return (
@@ -19,7 +18,11 @@ export default function Product({ product }) {
           </h3>
         </NavLink>
         <div className="product-description">
-          <p>{product.shortDescription}</p>
+          <p>
+            {product.shortDescription.length > 50
+              ? product.shortDescription.slice(0, 50) + "..."
+              : product.shortDescription}
+          </p>
         </div>
       </div>
       <div className="product-card__footer">
