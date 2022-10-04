@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { http } from "../../util/config";
+import { history } from "../../index";
 
 const initialState = {
   cart: [],
@@ -10,6 +12,7 @@ const initialState = {
     quantity: 1,
     isChecked: true,
   },
+  orderDetail: {},
   checkOutProducts: [],
 };
 
@@ -17,6 +20,9 @@ const cartReducer = createSlice({
   name: "cartReducer",
   initialState,
   reducers: {
+    setOrderDetailAction: (state, action) => {
+      state.orderDetail = action.payload;
+    },
     addToCartAction: (state, action) => {
       let index = state.cart.findIndex((prod) => prod.id === action.payload.id);
       if (index !== -1) {
@@ -61,6 +67,7 @@ const cartReducer = createSlice({
 });
 
 export const {
+  setOrderDetailAction,
   addToCartAction,
   changeQntAction,
   deleteProductAction,
@@ -69,3 +76,20 @@ export const {
 } = cartReducer.actions;
 
 export default cartReducer.reducer;
+
+export const getOrderApiAction = () => {
+  return async (dispatch) => {
+    try {
+      // call api
+      let result = await http.post("/users/order");
+
+      console.log('result', result.data.content);
+
+      dispatch(setOrderDetailAction(result.data.content));
+    } catch (err) {
+      console.log(err);
+      alert("Vui lòng đăng nhập để vào trang này!");
+      history.push("/login");
+    }
+  };
+};

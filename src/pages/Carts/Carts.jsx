@@ -1,9 +1,11 @@
 import React from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   changeQntAction,
   checkProduct,
   deleteProductAction,
+  getOrderApiAction,
   submitOrderAction,
 } from "../../redux/reducers/cartReducer";
 
@@ -64,6 +66,15 @@ export default function Carts() {
       );
     });
   };
+
+  const getOrderApi = () => {
+    dispatch(getOrderApiAction());
+  };
+
+  useEffect(() => {
+    getOrderApi();
+  }, []);
+
   return (
     <div className="carts">
       <h2>Carts</h2>
