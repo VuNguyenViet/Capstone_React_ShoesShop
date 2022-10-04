@@ -15,6 +15,7 @@ export default function Home() {
     dispatch(action);
   }, []);
   return (
+
     <div className='container'>
       <div className='ProductFeature'>
         <div className='ProductText'>

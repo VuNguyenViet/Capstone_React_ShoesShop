@@ -20,7 +20,7 @@ export default function Register() {
     validationSchema: Yup.object().shape({
       phone: Yup.string()
         .required("Số điện thoại không được để trống !")
-        .matches(10, "Số điện thoại phải đủ 10 số "),
+        .min(10, "Số điện thoại phải đủ 10 số "),
       name: Yup.string().required("Tên không được để trống "),
       email: Yup.string()
         .required("Email không được bỏ trống !")
@@ -39,6 +39,8 @@ export default function Register() {
   });
 
   return (
+    
+    
     <div className="register">
       <form className="row" onSubmit={formik.handleSubmit}>
         {/* Bên trái  */}

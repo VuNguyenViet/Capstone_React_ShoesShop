@@ -4,11 +4,16 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useDispatch } from 'react-redux'
 import { signinApi } from '../../redux/reducers/userReducer'
-
+import FacebookLogin from 'react-facebook-login'
 
 
 
 export default function Login(props) {
+
+
+  const responseFacebook = (response) => {
+    console.log(response);
+  }
 
 const dispatch = useDispatch ()
 const formik = useFormik ({
@@ -55,14 +60,20 @@ onSubmit: (values)=>{
         <button type='submit' className='login_button'>Login</button>
       </div>
       <div>
-        <button className='facebook_button'>
-          <div className='facebook_icon'>
-            <i class="fab fa-facebook "></i>
-          </div>
-
-          <p className='fb_text'>Continue With Facebook</p>
-        </button>
+      <FacebookLogin
+    appId="405558278438475"
+    autoLoad={true}
+    fields="name,email,picture"
+    
+    callback={responseFacebook} />,
       </div>
     </form>
+  //   <button className='facebook_button'>
+  //   <div className='facebook_icon'>
+  //     <i class="fab fa-facebook "></i>
+  //   </div>
+
+  //   <p className='fb_text'>Continue With Facebook</p>
+  // </button>
   )
 }

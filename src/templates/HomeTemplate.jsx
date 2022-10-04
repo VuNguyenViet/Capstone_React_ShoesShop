@@ -10,8 +10,10 @@ export default function HomeTemplate() {
     <>
         <Header />
         <Menu />
+        <Carousel_Home />
         <Outlet />
         <Footer />
     </>
   )
 }
+ 

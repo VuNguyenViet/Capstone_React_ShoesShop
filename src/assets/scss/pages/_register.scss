@@ -47,7 +47,7 @@ $border-input : #AE18E2;
     justify-content: space-around;
     align-items: center;
     p {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         text-align: start;
     }
     .input_validation {
@@ -82,5 +82,7 @@ $border-input : #AE18E2;
     border: none;
     background-color: #6200EE;
     color: white;
+    margin-bottom: 20px;
+    margin-right: 200px;
 }
 

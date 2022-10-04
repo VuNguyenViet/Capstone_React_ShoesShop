@@ -5,7 +5,7 @@ export default function Product({ product }) {
   const navigate = useNavigate();
 
   return (
-    <div className="product-card">
+    <div style={{marginBottom:'20px'}} className="product-card">
       <div className="product-card__img">
         <img src={product.image} alt="..." />
       </div>
